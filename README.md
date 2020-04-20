@@ -1,4 +1,4 @@
-# deploy-aws
+# sourceboat/deploy-aws
 This docker image contains deployments tools for AWS.
 
 ## What's included?
