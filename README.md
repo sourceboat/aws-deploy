@@ -18,12 +18,12 @@ This docker image contains deployments tools for AWS.
 
 ## Changelog
 
-Check [releases](https://github.com/sourceboat/deploy-aws/releases) for all notable changes.
+Check [releases](https://github.com/sourceboat/aws-deploy/releases) for all notable changes.
 
 ## Credits
 
 - [Philipp Kübler](https://github.com/PKuebler)
-- [All Contributors](https://github.com/sourceboat/deploy-aws/graphs/contributors)
+- [All Contributors](https://github.com/sourceboat/aws-deploy/graphs/contributors)
 
 ## License
 
