@@ -10,11 +10,33 @@ This docker image contains deployments tools for AWS.
 
 ## What's included?
 
-`WIP`
+- [Git CLI](https://git-scm.com/) `git`
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) `aws`
+- [ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html) `ecs-cli`
 
 ## Usage
 
-`WIP`
+### Simple ECS Deployment with ELB via GitLab CI
+
+```yml
+deploy:
+    stage: deploy
+    image: sourceboat/aws-deploy:latest
+    variables:
+        LAUNCH_TYPE: FARGATE
+        REGION: eu-central-1
+        PROJECT_NAME: production
+        CLUSTER_NAME: my-ecs-clustername
+        TARGET_GROUP_ARN: arn:aws:...
+        CONTAINER_NAME: app
+        CONTAINER_PORT: 8080
+        TIMEOUT: 20
+    script:
+        - ecs-cli configure default --cluster $CLUSTER_NAME --default-launch-type $LAUNCH_TYPE --region $REGION
+        - ecs-cli compose --project-name $PROJECT_NAME service up --ecs-profile lab-review --target-group-arn $TARGET_GROUP_ARN --container-name $CONTAINER_NAME --container-port $CONTAINER_PORT
+```
+
+Don't forget to provide `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` via GitLab CI/CD variable.
 
 ## Changelog
 
