@@ -23,16 +23,16 @@ deploy:
     stage: deploy
     image: sourceboat/aws-deploy:latest
     variables:
-        LAUNCH_TYPE: FARGATE
+        DEFAULT_LAUNCH_TYPE: FARGATE
         REGION: eu-central-1
         PROJECT_NAME: production
-        CLUSTER_NAME: my-ecs-clustername
+        CLUSTER: my-ecs-clustername
         TARGET_GROUP_ARN: arn:aws:...
         CONTAINER_NAME: app
         CONTAINER_PORT: 8080
         TIMEOUT: 20
     script:
-        - ecs-cli configure --cluster $CLUSTER_NAME --default-launch-type $LAUNCH_TYPE --region $REGION --config-name default-cluster
+        - ecs-cli configure --cluster $CLUSTER --default-launch-type $DEFAULT_LAUNCH_TYPE --region $REGION --config-name default-cluster
         - ecs-cli configure default --config-name default-cluster
         - ecs-cli compose --project-name $PROJECT_NAME service up --target-group-arn $TARGET_GROUP_ARN --container-name $CONTAINER_NAME --container-port $CONTAINER_PORT
 ```
