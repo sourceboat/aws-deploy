@@ -32,8 +32,9 @@ deploy:
         CONTAINER_PORT: 8080
         TIMEOUT: 20
     script:
-        - ecs-cli configure default --cluster $CLUSTER_NAME --default-launch-type $LAUNCH_TYPE --region $REGION
-        - ecs-cli compose --project-name $PROJECT_NAME service up --ecs-profile lab-review --target-group-arn $TARGET_GROUP_ARN --container-name $CONTAINER_NAME --container-port $CONTAINER_PORT
+        - ecs-cli configure --cluster $CLUSTER_NAME --default-launch-type $LAUNCH_TYPE --region $REGION --config-name default-cluster
+        - ecs-cli configure default --config-name default-cluster
+        - ecs-cli compose --project-name $PROJECT_NAME service up --target-group-arn $TARGET_GROUP_ARN --container-name $CONTAINER_NAME --container-port $CONTAINER_PORT
 ```
 
 Don't forget to provide `$AWS_ACCESS_KEY_ID` and `$AWS_SECRET_ACCESS_KEY` via GitLab CI/CD variable.
