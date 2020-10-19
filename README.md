@@ -6,7 +6,7 @@
 [![MicroBadger Size](https://img.shields.io/microbadger/image-size/sourceboat/aws-deploy.svg?style=flat-square)](https://microbadger.com/images/sourceboat/aws-deploy)
 [![MicroBadger Layers](https://img.shields.io/microbadger/layers/sourceboat/aws-deploy.svg?style=flat-square)](https://microbadger.com/images/sourceboat/aws-deploy)
 
-This docker image contains deployments tools for AWS.
+This docker image contains deployment tools for AWS.
 
 ## What's included?
 
