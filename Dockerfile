@@ -1,4 +1,4 @@
-FROM amazon/aws-cli:2.2.6
+FROM amazon/aws-cli:2.2.14
 
 # install git
 RUN yum install -y git \
